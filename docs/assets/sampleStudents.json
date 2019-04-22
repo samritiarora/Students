@@ -1,0 +1,57 @@
+[
+    {
+        "studentName": "dummy",
+        "category": "domestic",
+        "documents": [
+            true, true, true, true, true, false, true
+        ],
+        "fatherName": "dummy",
+        "motherName": "dummy",
+        "dob": "dummy",
+        "lastClassScore": 20
+    },
+    {
+        "studentName": "dummy1",
+        "category": "domestic",
+        "documents": [
+            true, true, true, true, true, false, true
+        ],
+        "fatherName": "dummy",
+        "motherName": "dummy",
+        "dob": "dummy",
+        "lastClassScore": 20
+    },
+    {
+        "studentName": "dummy2",
+        "category": "international",
+        "documents": [
+            true, true, true, true, true, true, true
+        ],
+        "fatherName": "dummy",
+        "motherName": "dummy",
+        "dob": "dummy",
+        "lastClassScore": 20
+    },
+    {
+        "studentName": "dummy3",
+        "category": "domestic",
+        "documents": [
+            true, true, true, true, true, false, true
+        ],
+        "fatherName": "dummy",
+        "motherName": "dummy",
+        "dob": "dummy",
+        "lastClassScore": 20
+    },
+    {
+        "studentName": "dummy4",
+        "category": "international",
+        "documents": [
+            true, true, true, true, true, true, true
+        ],
+        "fatherName": "dummy",
+        "motherName": "dummy",
+        "dob": "dummy",
+        "lastClassScore": 20
+    }
+]

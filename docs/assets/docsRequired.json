@@ -1,0 +1,37 @@
+[
+    {
+        "docName": "Domicile certificate",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": true
+    },
+    {
+        "docName": "Birth certificate",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": true
+    },
+    {
+        "docName": "Previous marksheets",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": true
+    },
+    {
+        "docName": "Police clearance",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": false
+    },
+    {
+        "docName": "Passport",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": false
+    },
+    {
+        "docName": "Signed declaration",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": true
+    },
+    {
+        "docName": "Domicile certificate",
+        "mandatoryForInternational": true,
+        "mandatoryForDomestic": true
+    }
+]

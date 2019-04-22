@@ -1,0 +1,20 @@
+<div class="card" style="border-radius:20px">
+  <div class="card-body" style="border-radius:20px" 
+  [style.background-color]="student.category == 'domestic' ? '#FBEEE6' : '#D6EAF8'">
+    <h4 class="card-title">{{student.studentName | titlecase}}</h4>
+    <p class="card-text">{{student.category | titlecase }} Student</p>
+    <hr> <small>Score: {{student.lastClassScore}}<br>DOB: {{student.dob | date}}</small><br><br>
+    <a [routerLink]="['/studentsForm', {action:'false', id:student.id}]" class="btn btn-primary btn-xs">Edit Profile</a>
+    &nbsp;
+    <a [routerLink]="['/studentsForm', {action:'true', id:student.id}]" class="btn btn-info btn-xs">See Profile</a>
+    &nbsp; <hr>
+    <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">Delete</button>
+  </div>
+</div>
+<br>
+
+
+<!-- <h4>{{student.studentName}} <b>{{student.category}}</b>
+  <a [routerLink]="['/studentsForm', {action:'false', name:student.studentName}]">Edit </a><br>
+  <a [routerLink]="['/studentsForm', {action:'true', name:student.studentName}]"> view</a>
+  <button (click)="deleteStudent(student.id)">delete</button></h4> -->

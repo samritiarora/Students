@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <h1 class="display-4">List of Students</h1>
+  </div>
+  <div class="row">
+    <form class="form-inline">
+      <label class="mb-2 mr-sm-2">
+        Category: </label>
+      <select (change)="displayFilteredStudents($event.target.value)" formControlName="category" name="category" class="form-control  mb-2 mr-sm-2">
+        <option value="0">All Students</option>
+        <option value="domestic">Domestic</option>
+        <option value="international">International</option>
+      </select>
+      <br>
+
+      <input #searchBox id="search-box" (input)="search(searchBox.value)" class="form-control mb-2 mr-sm-2" placeholder="type to search" />
+    </form>
+
+    <br>
+    <div *ngIf="!searchBox.value">
+      <div class="row">
+        <div class="card-columns">
+          <div *ngFor="let stu of listOfStudents">
+            <app-student-list-detail [student]="stu"></app-student-list-detail>
+          </div>
+        </div>
+        <!-- <div class="col   "></div> -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="container">
+      <!-- {{searchBox.value}} -->
+      <div *ngIf="searchBox.value">
+        <h2>Search Results</h2>
+
+        <div class="card-columns">
+          <div *ngFor="let hero of heroes$ | async">
+            <app-student-list-detail [student]="hero"></app-student-list-detail>
+            <!-- {{hero | json}} -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

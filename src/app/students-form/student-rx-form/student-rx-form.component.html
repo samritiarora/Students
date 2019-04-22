@@ -1,0 +1,165 @@
+<!-- main app container 
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Angular 7 Reactive Form Validation</h3>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Confirm Password</label>
+                      <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                      <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>-->
+<div class="container">
+    <p class="display-4">Student Onboarding Form</p>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="needs-validation">
+
+        <input type="hidden" formControlName="id" name="id">
+
+        <div class="form-group">
+            <label>
+                Student Name:</label>
+            <input type="text" formControlName="studentName" name="studentName" class="form-control">
+
+            <div *ngIf="( f.studentName.touched) && f.studentName.errors" class="text-danger">
+                <div *ngIf="f.studentName.errors.required"><small>Name is required</small></div>
+                <div *ngIf="f.studentName.errors.minlength"><small>Name should be atleast 4 characters</small></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Father Name:</label>
+            <input type="text" formControlName="fatherName" name="fatherName" class="form-control">
+
+            <div *ngIf="(f.fatherName.touched) && f.fatherName.errors" class="text-danger">
+                <div *ngIf="f.fatherName.errors.required"><small>Father's Name is required</small></div>
+                <div *ngIf="f.fatherName.errors.minlength"><small>Father's Name should be atleast 4 characters</small></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Mother Name:</label>
+            <input type="text" formControlName="motherName" name="motherName" class="form-control">
+
+            <div *ngIf="(f.motherName.touched) && f.motherName.errors" class="text-danger">
+                <div *ngIf="f.motherName.errors.required"><small>Mother's Name is required</small></div>
+                <div *ngIf="f.motherName.errors.minlength"><small>Mother's Name should be atleast 4 characters</small></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>
+                DOB:</label>
+            <input type="date" formControlName="dob" name="dob" class="form-control" />
+            <div *ngIf="(f.dob.dirty || f.dob.touched) && f.dob.errors" class="text-danger">
+                <div *ngIf="f.dob.errors.required"><small>DOB is required</small></div>
+                <div *ngIf="f.dob.errors.invalidDate"><small>Student should be of minimum age!!!</small></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Last Class Score: </label>
+            <input type="number" formControlName="lastClassScore" name="lastClassScore" class="form-control" />
+            <div *ngIf="(f.lastClassScore.dirty || f.lastClassScore.touched) && f.lastClassScore.errors" class="text-danger">
+                <small>
+                    <div *ngIf="f.lastClassScore.errors.required">Last Class Score is required</div>
+                    <div *ngIf="f.lastClassScore.errors.min || f.lastClassScore.errors.max">
+                        Last Class Score should be between 1 and 100!!!</div>
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                Category:</label>
+            <select (change)="displayDocumentsList($event.target.value)" formControlName="category" name="category"
+                class="form-control">
+                <!-- <option value="0">--Please select--</option> -->
+                <option value="domestic">Domestic</option>
+                <option value="international">International</option>
+            </select>
+            <div *ngIf="(f.category.dirty || f.category.touched) && f.category.errors" class="text-danger">
+                <div *ngIf="f.category.errors.required"><small>Category is required</small></div>
+            </div>
+        </div>
+
+        <div *ngIf="!f.category.errors">
+            <div class="form-group">
+                <label>
+                    Documents:</label>
+                <div formArrayName="aliases">
+                    <div *ngFor="let docs of aliases.controls; let i=index;">
+                        <!-- The repeated alias template -->
+                        <!-- {{ showMe(f.category.value, aliases.controls[i].errors) }}
+                        {{aliases.controls[i].errors | json}} -->
+                        <label>
+                            {{documents[i].docName}}</label>&nbsp;
+                        <input type="checkbox" [formControlName]="i" class="form-control-md">
+                        <span *ngIf="f.category.value == 'domestic' ? 
+                        documents[i].mandatoryForDomestic : 
+                        documents[i].mandatoryForInternational">*</span>
+                        <div *ngIf="(aliases.controls[i].dirty || aliases.controls[i].touched) && aliases.controls[i].errors"
+                            class="text-danger">
+                            <div *ngIf="aliases.controls[i].errors.required"><small>{{documents[i].docName}} is
+                                    required</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="edit">
+            <button class="btn btn-primary" [disabled]="viewOnly || !registerForm.valid">Update</button>
+        </div>
+        <div *ngIf="!edit">
+            <button class="btn btn-primary" [disabled]="viewOnly || !registerForm.valid">Register</button>
+        </div>
+    </form>
+</div>
+<!-- <p> {{edit}}
+    {{this.registerForm.value | json}}
+    Form Status: {{ registerForm.status }}
+</p> -->

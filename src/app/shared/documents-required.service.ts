@@ -30,7 +30,7 @@ export class DocumentsRequiredService {
 
   getDocObs(): Observable<DocReqd[]>{
     debugger;
-    return this.http.get<DocReqd[]>('/assets/docsRequired.json');
+    return this.http.get<DocReqd[]>('/Students/assets/docsRequired.json');
   }
 
   // //conventional way
